@@ -40,9 +40,6 @@ class Point:
         """
         return self._x, self._y
 
-
-
-
     # Move Point
     def movePoint(self, x, y):
         """
@@ -60,21 +57,18 @@ class Point:
         """
         Calculate the distance from this point to a second
         point passed as a parameter
-        This method uses pythorean
-        :param other_point:
-        :return:
+        This method uses Pythagorean Theorem to calculate
+        the distance between two points
+        :param other_point: second point to calculate
+        :return: Distance between two points (float)
         """
         return math.sqrt((self._x - other_point._x)**2 +
         (self._y + other_point._y))
 
 
-
-
-
 def main():
     p1 = Point() # Take default values
-    p2 = Point()
-    # p2 = Point(2, 5) # Set values
+    p2 = Point(2, 5) # Set values
 
     # Add information
     # p1.x = 5
@@ -82,9 +76,10 @@ def main():
     # p2.x = 3
     # p2.y = 6
 
-    # print(p1._x, p1._y)
+    print(p1._x, p1._y)
     # p1.reset()
-    print(p2._x, p2._y)
+    print(p2.calcDistance(p1))
+    p1.movePoint(3, 2)
     print(p1.getPoint())
     print(p2.getPoint())
     print(p2.calcDistance(p1))
