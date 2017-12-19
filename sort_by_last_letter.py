@@ -16,6 +16,31 @@ def sort_by_last_letter(string):
     print(last_letter)
     return sorted(string, key=last_letter)
 
+g = 'global'
+
+
+def outer(p="param"):
+    l = "local"
+
+    def inner():
+        print(g, p, l)
+    inner()
+
+
+def enclosing():
+    x = "closed over"
+    
+    # Local function
+    def local_func():
+        print (x)
+    return local_func()
+
+
+def test_enclosing():
+    lf = enclosing()
+    lf()
+    print(lf.__closure__)
+
 
 def main():
     """Test function"""
@@ -28,4 +53,6 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    # main()
+    # outer()
+    test_enclosing()
